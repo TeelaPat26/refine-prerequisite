@@ -1,0 +1,9 @@
+src/
+tests/
+.vscode/
+.env
+*.log
+.gitignore
+jest.config.js
+tsup.config.ts
+package-lock.json
