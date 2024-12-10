@@ -1,14 +1,14 @@
 /node_modules
-src/
-tests/
-.vscode/
+/src
+/tests
+/.vscode
 
-.env
-.DS_Store
-.gitignore
-.prettierrc.json
+/.env
+/.DS_Store
+/.gitignore
+/.prettierrc.json
 
-tsconfig.json
-jest.config.js
-tsup.config.ts
+/tsconfig.json
+/jest.config.js
+/tsup.config.ts
 

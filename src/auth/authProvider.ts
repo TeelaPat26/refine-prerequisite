@@ -1,6 +1,6 @@
-import { clearAccessToken, saveAccessToken, getAccessToken } from "../storage/accessTokenStorage"
-import { clearGeneratedUlid, saveGeneratedUlid, getGeneratedUlid } from "../storage/generatedUlidStorage"
-import { clearRefreshToken, saveRefreshToken, getRefreshToken } from "../storage/refreshTokenStorage"
+import { clearAccessToken, saveAccessToken, getAccessToken } from "../storage/access-token-storage"
+import { clearGeneratedUlid, saveGeneratedUlid, getGeneratedUlid } from "../storage/generated-ulid-storage"
+import { clearRefreshToken, saveRefreshToken, getRefreshToken } from "../storage/refresh-token-storage"
 import { ulid } from "ulid"
 import type { AuthProvider } from '@refinedev/core'
 import { authenticate, getCurrentUser } from "../api/auth"
