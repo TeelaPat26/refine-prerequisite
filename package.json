@@ -1,6 +1,6 @@
 {
   "name": "refine-prerequisite",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
@@ -8,8 +8,8 @@
     "dist"
   ],
   "scripts": {
-    "build": "jest && tsup",
-    "test": "jest"
+    "test": "jest",
+    "build": "jest && tsup"
   },
   "repository": {
     "type": "git",
