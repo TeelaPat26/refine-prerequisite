@@ -1,9 +1,14 @@
+/node_modules
 src/
 tests/
 .vscode/
+
 .env
-*.log
+.DS_Store
 .gitignore
+.prettierrc.json
+
+tsconfig.json
 jest.config.js
 tsup.config.ts
-package-lock.json
+
