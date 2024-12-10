@@ -9,7 +9,8 @@
   ],
   "scripts": {
     "build": "jest && tsup",
-    "test": "jest"
+    "test": "jest",
+    "postinstall": "node scripts/copyEnv.js"
   },
   "repository": {
     "type": "git",
