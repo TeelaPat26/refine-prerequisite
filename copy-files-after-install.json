@@ -3,6 +3,10 @@
     {
       "from": "dist/env/.env",
       "to": "../../.env"
+    },
+    {
+      "from": "components",
+      "to": "../../src"
     }
   ]
 }
