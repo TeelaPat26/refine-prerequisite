@@ -1,11 +1,12 @@
 {
   "name": "refine-prerequisite",
-  "version": "1.0.6",
+  "version": "1.0.12",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "files": [
-    "dist"
+    "dist",
+    "copy-files-from-to.json"
   ],
   "scripts": {
     "test": "jest",

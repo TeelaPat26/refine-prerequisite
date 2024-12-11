@@ -1,13 +1,1 @@
-/node_modules
-/src
-/tests
-/.vscode
-
-/.DS_Store
-/.gitignore
-/.prettierrc.json
-
-/tsconfig.json
-/jest.config.js
-/tsup.config.ts
-
+node_modules/
