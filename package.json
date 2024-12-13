@@ -1,6 +1,6 @@
 {
-  "name": "refine-prerequisite",
-  "version": "1.0.26",
+  "name": "@kodkool/refine-prerequisite",
+  "version": "1.0.27",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
@@ -38,5 +38,8 @@
     "@ant-design/icons": "^5.5.2",
     "antd": "^5.22.4",
     "copy-files-from-to": "^3.12.0"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
