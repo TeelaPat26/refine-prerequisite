@@ -1,4 +1,4 @@
-export function authenticate() {
+export function authenticate() {    
     return Promise.resolve({
         status: 200,
         data: {

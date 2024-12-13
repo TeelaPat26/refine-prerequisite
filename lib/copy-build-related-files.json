@@ -3,6 +3,10 @@
     {
       "from": "../components",
       "to": "../dist"
+    },
+    {
+      "from": "../src/env",
+      "to": "../dist"
     }
   ]
 }
