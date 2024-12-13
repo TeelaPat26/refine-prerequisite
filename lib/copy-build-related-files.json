@@ -1,12 +1,12 @@
 {
   "copyFiles": [
     {
-      "from": "../components",
-      "to": "../dist"
+      "from": "../components/**/*",
+      "to": "../dist/components/"
     },
     {
-      "from": "../src/env",
-      "to": "../dist"
+      "from": "../src/env/**/*",
+      "to": "../dist/env/"
     }
   ]
 }

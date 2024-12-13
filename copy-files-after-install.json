@@ -5,8 +5,8 @@
       "to": "../../.env"
     },
     {
-      "from": "components",
-      "to": "../../src"
+      "from": "components/**/*",
+      "to": "../../src/components/"
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
   "name": "refine-prerequisite",
-  "version": "1.0.21",
+  "version": "1.0.23",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
@@ -11,7 +11,7 @@
   ],
   "scripts": {
     "test": "jest",
-    "build": "jest && tsup && npm run postbuild",
+    "build": "jest && tsup",
     "postbuild": "copy-files-from-to --config lib/copy-build-related-files.json",
     "postinstall": "copy-files-from-to --config copy-files-after-install.json"
   },
