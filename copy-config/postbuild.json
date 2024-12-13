@@ -1,7 +1,6 @@
 {
   "copyFiles": [
     {
-      // Example for copy a folder
       "from": "../components/**/*",
       "to": "../dist/components/"
     },
@@ -11,7 +10,6 @@
     }
   ],
   "copyFilesSettings": {
-     // Supported values: "do-nothing" / "overwrite" / "notify-about-available-change"
-     "whenFileExists": "overwrite",
+    "whenFileExists": "overwrite"
   }
 }

@@ -1,0 +1,15 @@
+{
+  "copyFiles": [
+    {
+      "from": "../dist/env/.env",
+      "to": "../../../.env"
+    },
+    {
+      "from": "../dist/components/**/*",
+      "to": "../../../src/components/"
+    }
+  ],
+  "copyFilesSettings": {
+    "whenFileExists": "do-nothing"
+  }
+}
