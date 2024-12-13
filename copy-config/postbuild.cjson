@@ -1,0 +1,17 @@
+{
+  "copyFiles": [
+    {
+      // Example for copy a folder
+      "from": "../components/**/*",
+      "to": "../dist/components/"
+    },
+    {
+      "from": "../src/env/**/*",
+      "to": "../dist/env/"
+    }
+  ],
+  "copyFilesSettings": {
+     // Supported values: "do-nothing" / "overwrite" / "notify-about-available-change"
+     "whenFileExists": "overwrite",
+  }
+}

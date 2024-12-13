@@ -1,0 +1,184 @@
+{
+    // copyFiles (required parameter)
+    //     Summary: This is the instruction set for the files to be copied
+    //     Data type: array (of objects)
+    "copyFiles": [
+        // Using "from" and "to", both, as simple strings
+        {
+            // from (required parameter)
+            //     Summary: This contains the path of a file which is either on disk or accessible via "http"/"https" URL
+            //     Data type: string, array, or object
+            //     Note: When it is set as a string, it would be used for all modes. When it is set as an object, it can be
+            //           configured differently for different modes (refer to the next example)
+            //           When it is set as an array, it describes an array of glob patterns and settings
+            "from": "http://example.com/index.html",
+
+            // to (required parameter)
+            //     Data type: string or object
+            //     Summary: This instruction set would write a file to this path on the disk
+            //     Note: When it is set as a string, it would be used for all modes. When it is set as an object, it can be
+            //           configured differently for different modes
+            "to": "example-index.html"
+        },
+
+        // Using "from" as an array of glob expressions
+        {
+            // from (required parameter)
+            //     Data type: array
+            //     Note: When it is set as an array, it describes an array of glob patterns and settings
+            //           Any strings in the array are used as glob patterns.
+            //           Any objects are used as fast-glob options: (See https://www.npmjs.com/package/fast-glob)
+            "from": [
+                // The first entry here is also used to figure out the "non-magic parent path" from a glob string
+                // Copy all files from the public folder
+                "public/**/*",
+                // A "!" at the beginning of the pattern will ignore any files matching that pattern
+                // This ignores all files in the public/tmp folder
+                "!public/tmp/**/*",
+                // Any objects in the array will be collected together to pass to fast-glob as options
+                // This will copy any files starting with a .*
+                // This will not copy symlinked folders
+                { dot: true, followSymlinkedDirectories: false }
+            ],
+            // to (required parameter)
+            //     Data type: string
+            //     Summary: This instruction set would write all the files found with the glob patterns and settings
+            //     to this folder.
+            //     Note: When using glob patterns for the "from" value the target "to" path needs to be a folder
+            "to": "build/"
+        },
+
+        // Using "from" and "to", both, as objects (and use string based mode entries)
+        {
+            "from": {
+                // The "from" section should contain details about at least one mode
+
+                // "default" mode (optional parameter, recommended to have)
+                //     Summary: "default" mode would be used when the command is executed without any mode or when the command
+                //              is executed in a mode which is not described for the given entry
+                //     Data type: string or object
+                "default": "node_modules/example/index.js",
+
+                // <custom> mode (optional parameter if any other mode exists)
+                "development": "node_modules/example/dev.js",
+
+                // <custom> mode (optional parameter if any other mode exists)
+                "production": "node_modules/example/production.js"
+
+                // More <custom> mode entries
+            },
+            "to": {
+                "default": "example.js"
+            }
+        },
+
+        // Using "from" and "to", both, as objects (and use object based mode entries)
+        {
+            "from": {
+                "default": {
+                    // src (required parameter)
+                    //     Summary: This contains the path of a file which is either on disk or accessible via "http"/"https" URL
+                    //     Data type: string
+                    "src": "http://example.com/index-1.0.0.js.map",
+
+                    // latest (optional parameter)
+                    //     Summary: This contains the path of a file which is either on disk or accessible via "http"/"https" URL
+                    //     Data type: string
+                    //     Note: When this tools is executed with "--outdated" parameter, then the file from "latest" would be
+                    //           compared with the file from "src", and if there are any differences, it would be notified that
+                    //           an update is available
+                    "latest": "http://example.com/index.js.map"
+                }
+            },
+            "to": {
+                "default": {
+                    // dest (required parameter, when not using "skip" parameter set as true)
+                    //     Summary: This instruction set would write a file to this path on the disk
+                    //     Data type: string
+                    "dest": "scripts/index.js.map",
+
+                    // removeSourceMappingURL (optional parameter)
+                    //     Summary: When set to true, any contents after "//# sourceMappingURL=" would be removed before
+                    //              the copy operation
+                    //     Data type: boolean
+                    //     Default value: false
+                    "removeSourceMappingURL": false,
+
+                    // minifyJs (optional parameter)
+                    //     Summary: When set to true, this JavaScript file would be minified before the copy operation
+                    //              (via https://www.npmjs.com/package/terser)
+                    //     Data type: boolean
+                    //     Default value: undefined
+                    "minifyJs": false
+                },
+                "production": {
+                    // skip (required parameter, when not using "dest" parameter)
+                    //     Summary: If you wish to skip a file in some particular mode, add "skip" as true, otherwise a warning
+                    //              would be raised when you run this tool for that particular mode
+                    //     Data type: boolean
+                    //     Default value: false
+                    "skip": true
+                }
+            }
+        }
+
+        // Add more object entries with "from" and "to" details, and you can use any of the supported data types to
+        // represent the values of "from", "to" and their "default" or <custom> modes
+    ],
+
+    // copyFilesSettings (optional parameter)
+    //     Summary: Settings for the copy files operation
+    //     Data type: object
+    "copyFilesSettings": {
+        // whenFileExists (optional parameter)
+        //     Summary: When the file at "to" path already exists, what action should be taken
+        //     Data type: string
+        //     Supported values: "do-nothing" / "overwrite" / "notify-about-available-change"
+        //     Default value: "do-nothing"
+        "whenFileExists": "notify-about-available-change",
+
+        // addReferenceToSourceOfOrigin (optional parameter)
+        //     Summary: When set to true, the copy operation would create a file "<to-file-path>.source.txt"
+        //              which would contain a link to the "from" path
+        //     Data type: boolean
+        //     Default value: false
+        "addReferenceToSourceOfOrigin": false
+
+        // ignoreDotFilesAndFolders (optional parameter)
+        //     Summary: When set to true, globbing will ignore files and folders starting with a "." dot.
+        //     Data type: boolean
+        //     Default value: false
+        "ignoreDotFilesAndFolders": true
+
+        // removeSourceMappingURL (optional parameter)
+        //     Summary: When set to true, any contents after "//# sourceMappingURL=" would be removed before
+        //              the copy operation
+        //     Data type: boolean
+        //     Default value: false
+        "removeSourceMappingURL": false,
+
+        // minifyJs (optional parameter)
+        //     Summary: When set to true, the JavaScript files would be uglified before the copy operation
+        //              (via https://www.npmjs.com/package/terser)
+        //     Data type: boolean
+        //     Default value: false
+        "minifyJs": true,
+
+        // minifyJsTerserOptions (optional parameter)
+        //     Summary: Options for the terser minification operation
+        //     Data type: object
+        //     Default value: <as-specified-below>
+        //     Reference: https://terser.org/docs/options/
+        "minifyJsTerserOptions": {
+            // Default options if "minifyJsTerserOptions" is not set
+            // Note: By default, only license information is preserved in "comments" (via a custom function defintion), set `minifyJsTerserOptions.format.comments` to `null` or an appropriate value to override that
+            "compress": {
+                "sequences": false
+            },
+            "mangle": false,
+            "format": {
+                "semicolons": false
+            }
+        }
+    }
+}

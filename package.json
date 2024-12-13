@@ -1,19 +1,18 @@
 {
   "name": "refine-prerequisite",
-  "version": "1.0.23",
+  "version": "1.0.24",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "files": [
     "dist",
-    "components",
-    "copy-files-after-install.json"
+    "copy-config"
   ],
   "scripts": {
     "test": "jest",
     "build": "jest && tsup",
-    "postbuild": "copy-files-from-to --config lib/copy-build-related-files.json",
-    "postinstall": "copy-files-from-to --config copy-files-after-install.json"
+    "postbuild": "copy-files-from-to --config copy-config/postbuild.cjson",
+    "postinstall": "copy-files-from-to --config copy-config/postinstall.cjson"
   },
   "repository": {
     "type": "git",
