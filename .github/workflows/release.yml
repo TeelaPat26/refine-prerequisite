@@ -7,23 +7,34 @@ on:
       - next
 
 permissions: 
-  contents: write
-  issues: write
-  pull-requests: write
+  contents: write # Needed for updating repository content (like tags or release notes).
+  issues: write   # Needed if semantic-release interacts with issues.
+  pull-requests: write # Needed if semantic-release interacts with PRs.
 
 jobs:
   release:
     runs-on: ubuntu-latest
     steps:
+      # Check out the repository.
       - uses: actions/checkout@v4
+
+      # Set up Node.js environment.
       - uses: actions/setup-node@v4
         with:
           node-version: "lts/*"
+
+      # Install dependencies.
       - run: npm ci
+
+      # Build the project.
       - run: npm run build
+
+      # Optional: Run a security audit on dependencies.
       - run: npm audit signatures
+
+      # Run semantic-release.
       - name: Release
-      - env: 
+        env: 
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: npx semantic-release
