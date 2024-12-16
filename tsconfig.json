@@ -9,7 +9,7 @@
         "declaration": true,
         "outDir": "dist",
         "jsx": "react-jsx"
-    },
-    "include": ["src", "components"],
-    "exclude": ["node_modules", "components"]
+  },
+  "include": ["src", "src_copy/api"],
+  "exclude": ["node_modules", "src_copy"]
 }

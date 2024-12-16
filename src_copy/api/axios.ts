@@ -1,11 +1,14 @@
-import { getRefreshToken, saveRefreshToken } from "../storage"
-import { getAccessToken, saveAccessToken } from "../storage/access-token-storage"
+import { getRefreshToken, saveRefreshToken } from '../../src/storage'
+import {
+  getAccessToken,
+  saveAccessToken,
+} from '../../src/storage/access-token-storage'
 import axios from 'axios'
-import { refreshToken } from "./auth"
+import { refreshToken } from './auth'
 
 // const baseUrl = import.meta.env.VITE_API_URL
 // TODO: replace this with VITE env
-const baseUrl = ""
+const baseUrl = ''
 
 export const axiosInstance = axios.create({
   baseURL: baseUrl,
