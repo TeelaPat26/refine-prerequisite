@@ -54,6 +54,6 @@
     }
   },
   "bin": {
-    "add-login": "lib/add-login/add-login.js"
+    "add": "lib/add/add.js"
   }
 }

@@ -1,7 +1,7 @@
 {
   "copyFiles": [
     {
-      "from": "../../../dist/components/login/**/*",
+      "from": "../../../dist/src/components/login/**/*",
       "to": "../../../../../../src/components/login/"
     }
   ],
