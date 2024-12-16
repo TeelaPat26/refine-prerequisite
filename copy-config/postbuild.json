@@ -1,16 +1,8 @@
 {
   "copyFiles": [
     {
-      "from": "../src_copy/components/**/*",
-      "to": "../dist/components/"
-    },
-    {
-      "from": "../src_copy/env/**/*",
-      "to": "../dist/env/"
-    },
-    {
-      "from": "../src_copy/api/**/*",
-      "to": "../dist/api/"
+      "from": "../src/**/*",
+      "to": "../dist/src/"
     }
   ],
   "copyFilesSettings": {

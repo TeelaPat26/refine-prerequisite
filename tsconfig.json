@@ -10,6 +10,6 @@
         "outDir": "dist",
         "jsx": "react-jsx"
   },
-  "include": ["src", "src_copy/api"],
-  "exclude": ["node_modules", "src_copy"]
+  "include": ["src"],
+  "exclude": ["node_modules"]
 }

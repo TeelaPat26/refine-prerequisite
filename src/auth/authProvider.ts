@@ -1,3 +1,4 @@
+import { authenticate, getCurrentUser } from '../api'
 import {
   clearAccessToken,
   saveAccessToken,
@@ -9,7 +10,6 @@ import {
   getRefreshToken,
 } from '../storage/refresh-token-storage'
 import type { AuthProvider } from '@refinedev/core'
-import { authenticate, getCurrentUser } from '../../src_copy/api/auth'
 
 const logout = async () => {
   clearAccessToken()

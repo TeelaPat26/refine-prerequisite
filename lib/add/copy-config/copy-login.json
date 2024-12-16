@@ -1,0 +1,11 @@
+{
+  "copyFiles": [
+    {
+      "from": "../../../dist/components/login/**/*",
+      "to": "../../../../../../src/components/login/"
+    }
+  ],
+  "copyFilesSettings": {
+    "whenFileExists": "do-nothing"
+  }
+}
