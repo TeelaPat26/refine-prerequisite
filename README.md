@@ -1,1 +1,1 @@
-This is a readme for npm.
+This is a readme for npm @kodkool/refine-prerequisite.
