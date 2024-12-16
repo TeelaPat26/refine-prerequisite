@@ -1,8 +1,15 @@
-import { clearAccessToken, saveAccessToken, getAccessToken } from "../storage/access-token-storage"
-import { clearRefreshToken, saveRefreshToken, getRefreshToken } from "../storage/refresh-token-storage"
-import { ulid } from "ulid"
+import {
+  clearAccessToken,
+  saveAccessToken,
+  getAccessToken,
+} from '../storage/access-token-storage'
+import {
+  clearRefreshToken,
+  saveRefreshToken,
+  getRefreshToken,
+} from '../storage/refresh-token-storage'
 import type { AuthProvider } from '@refinedev/core'
-import { authenticate, getCurrentUser } from "../api/auth"
+import { authenticate, getCurrentUser } from '../api/auth'
 
 const logout = async () => {
   clearAccessToken()
@@ -19,7 +26,10 @@ export const authProvider: AuthProvider = {
     clearRefreshToken()
 
     if ((username || email) && password) {
-      const response = await authenticate()
+      const response = await authenticate({
+        userId: username || email,
+        password,
+      })
 
       // on success
       if (response.status === 200) {
@@ -55,7 +65,6 @@ export const authProvider: AuthProvider = {
   check: async () => {
     const accessToken = getAccessToken()
     const refreshToken = getRefreshToken()
-    
 
     if (accessToken && refreshToken) {
       return {
@@ -76,9 +85,9 @@ export const authProvider: AuthProvider = {
     if (accesstoken && refreshtoken) {
       const response = await getCurrentUser()
       return {
-        id: response.data.userId,
-        name: response.data.username,
-        role: response.data.role,
+        id: response.userId,
+        name: response.username,
+        role: response.role,
         avatar: 'https://i.pravatar.cc/300',
       }
     }
