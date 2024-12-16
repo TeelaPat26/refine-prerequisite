@@ -1,14 +1,14 @@
 name: Release
 
-on: 
+on:
   push:
     branches:
-      - main
+      - production
       - next
 
-permissions: 
+permissions:
   contents: write # Needed for updating repository content (like tags or release notes).
-  issues: write   # Needed if semantic-release interacts with issues.
+  issues: write # Needed if semantic-release interacts with issues.
   pull-requests: write # Needed if semantic-release interacts with PRs.
 
 jobs:
@@ -21,7 +21,7 @@ jobs:
       # Set up Node.js environment.
       - uses: actions/setup-node@v4
         with:
-          node-version: "lts/*"
+          node-version: 'lts/*'
 
       # Install dependencies.
       - run: npm install --ignore-scripts
@@ -34,7 +34,7 @@ jobs:
 
       # Run semantic-release.
       - name: Release
-        env: 
+        env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: npx semantic-release

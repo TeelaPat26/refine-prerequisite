@@ -10,6 +10,16 @@
    npm i --no-scripts
    ```
 
-3. **Publishing**
-    - using commit message pattern according to [semantic-release](https://github.com/semantic-release/semantic-release)
+3. **Publishing by Pushing to GitHub**
+    - Using commit message pattern according to [semantic-release](https://github.com/semantic-release/semantic-release)
+    - Or run commitizen to generate commit message
+    ```bash
+    cz
+    ```
+    - Then run
+    ```bash
+    git push
+    ```
+
+
 
