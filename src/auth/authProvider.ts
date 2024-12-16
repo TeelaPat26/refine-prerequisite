@@ -1,5 +1,4 @@
 import { clearAccessToken, saveAccessToken, getAccessToken } from "../storage/access-token-storage"
-import { clearGeneratedUlid, saveGeneratedUlid, getGeneratedUlid } from "../storage/generated-ulid-storage"
 import { clearRefreshToken, saveRefreshToken, getRefreshToken } from "../storage/refresh-token-storage"
 import { ulid } from "ulid"
 import type { AuthProvider } from '@refinedev/core'
@@ -8,7 +7,6 @@ import { authenticate, getCurrentUser } from "../api/auth"
 const logout = async () => {
   clearAccessToken()
   clearRefreshToken()
-  clearGeneratedUlid()
   return {
     success: true,
     redirectTo: '/login',
@@ -19,7 +17,6 @@ export const authProvider: AuthProvider = {
   login: async ({ username, email, password }) => {
     clearAccessToken()
     clearRefreshToken()
-    clearGeneratedUlid()
 
     if ((username || email) && password) {
       const response = await authenticate()
@@ -28,7 +25,6 @@ export const authProvider: AuthProvider = {
       if (response.status === 200) {
         saveAccessToken(response.data.accessToken)
         saveRefreshToken(response.data.refreshToken)
-        saveGeneratedUlid(ulid())
 
         return {
           success: true,
@@ -59,11 +55,7 @@ export const authProvider: AuthProvider = {
   check: async () => {
     const accessToken = getAccessToken()
     const refreshToken = getRefreshToken()
-    const generatedUlid = getGeneratedUlid()
-
-    if (!generatedUlid) {
-      saveGeneratedUlid(ulid())
-    }
+    
 
     if (accessToken && refreshToken) {
       return {
