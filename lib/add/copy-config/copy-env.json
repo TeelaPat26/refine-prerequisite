@@ -1,8 +1,8 @@
 {
   "copyFiles": [
     {
-      "from": "../../../dist/src/components/login/**/*",
-      "to": "../../../../../../src/components/login/"
+      "from": "../../../dist/src/env/**/*",
+      "to": "../../../../../../src/"
     }
   ],
   "copyFilesSettings": {
