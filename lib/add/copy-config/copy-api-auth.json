@@ -1,8 +1,8 @@
 {
   "copyFiles": [
     {
-      "from": "../../../dist/src/env/**/*",
-      "to": "../../../../../../src/"
+      "from": "../../../dist/src/api/auth.ts",
+      "to": "../../../../../../src/api/auth.ts"
     }
   ],
   "copyFilesSettings": {

@@ -1,0 +1,11 @@
+{
+  "copyFiles": [
+    {
+      "from": "../../../dist/src/storage/access-token-storage.ts",
+      "to": "../../../../../../src/storage/access-token-storage.ts"
+    }
+  ],
+  "copyFilesSettings": {
+    "whenFileExists": "do-nothing"
+  }
+}

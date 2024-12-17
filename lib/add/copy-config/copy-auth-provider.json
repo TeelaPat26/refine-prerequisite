@@ -1,0 +1,11 @@
+{
+  "copyFiles": [
+    {
+      "from": "../../../dist/src/auth/authProvider.ts",
+      "to": "../../../../../../src/auth/authProvider.ts"
+    }
+  ],
+  "copyFilesSettings": {
+    "whenFileExists": "do-nothing"
+  }
+}

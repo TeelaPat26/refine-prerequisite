@@ -1,8 +1,8 @@
 {
   "copyFiles": [
     {
-      "from": "../../../dist/src/env/**/*",
-      "to": "../../../../../../src/"
+      "from": "../../../dist/src/api/axios.ts",
+      "to": "../../../../../../src/api/axios.ts"
     }
   ],
   "copyFilesSettings": {
